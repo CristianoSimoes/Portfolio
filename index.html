@@ -1,0 +1,773 @@
+<!doctype html>
+<html lang="pt">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cristiano — Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+/* Tema e cores */
+:root{
+  --cinza-fundo: #e8e8e8;
+  --cinza-claro: #d4d4d4;
+  --cinza-escuro: #2d2d2d;
+  --azul: #0066cc;
+  --azul-hover: #0052a3;
+  --branco: #ffffff;
+}
+
+/* Reset */
+*{ box-sizing: border-box; }
+body{
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(180deg, #dfe3e9 0%, #cfd4dc 100%);
+  color: var(--cinza-escuro);
+  line-height: 1.6;
+}
+
+.container{
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 30px 0;
+}
+
+/* Cabeçalho */
+.cabecalho-site{
+  background: linear-gradient(90deg, rgba(0,0,0,0.25), rgba(255,255,255,0.02));
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(6px);
+}
+
+.cabecalho-interno{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.marca .nome{
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.marca .descricao{
+  margin: 0;
+  color: #000000;
+  font-size: 0.9rem;
+}
+
+.navegacao a{
+  color: #000000;
+  text-decoration: none;
+  margin-left: 18px;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.navegacao a:hover{
+  color: var(--azul);
+}
+
+/* Secções */
+.secao{
+  padding: 40px 0;
+}
+
+.divisor{
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+  margin: 0;
+}
+
+/* Sobre mim */
+.sobre-grelha{
+  display: grid;
+  grid-template-columns: minmax(120px, 180px) 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.foto-perfil{
+  width: 100%;
+  max-width: 180px;
+}
+
+.foto-perfil img{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 16px;
+  object-fit: cover;
+}
+
+.sobre-conteudo h2{
+  margin-top: 0;
+  color: #111111;
+}
+
+.sobre-conteudo p{
+  color: #2a2a2a;
+  margin-bottom: 16px;
+}
+
+/* Botão */
+.botao{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: linear-gradient(90deg, #00c2a8, #ff6b6b);
+  color: #071021;
+  box-shadow: 0 6px 18px rgba(0,194,168,0.12);
+  transition: transform 0.2s;
+}
+
+.botao:hover{
+  transform: translateY(-2px);
+}
+
+/* Competências */
+.lista-competencias{
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0 0;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.competencia{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 8px;
+  background: #ffffff;
+  border: 1px solid #d0d6dd;
+  padding: 20px;
+  border-radius: 10px;
+  color: #1a1a1a;
+  min-width: 160px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.2s;
+}
+
+.competencia:hover{
+  transform: translateY(-3px);
+}
+
+.competencias h2{
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Projetos */
+.projetos{
+  background: linear-gradient(180deg, #b9c0c9 0%, #a8afb8 100%);
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding: 50px 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.projetos h2{
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 40px;
+  color: #111111;
+}
+
+.linha-projeto{
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin-bottom: 48px;
+  padding-bottom: 48px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.linha-projeto:last-child{
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.linha-projeto.invertido{
+  flex-direction: row-reverse;
+}
+
+.imagem-projeto{
+  flex: 1 1 55%;
+}
+
+.imagem-projeto img{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+  display: block;
+}
+
+.conteudo-projeto{
+  flex: 1 1 45%;
+}
+
+.conteudo-projeto h3{
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: #111111;
+  font-size: 1.4rem;
+}
+
+.conteudo-projeto p{
+  margin: 0;
+  line-height: 1.5;
+  color: #2a2a2a;
+}
+
+/* Rodapé */
+.rodape-site{
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 40px 0;
+  text-align: center;
+}
+
+.contacto-info{
+  margin-bottom: 20px;
+}
+
+.contacto-info h2{
+  margin-bottom: 20px;
+  color: #111111;
+}
+
+.contacto-info p{
+  margin: 8px 0;
+  color: #2a2a2a;
+}
+
+.contacto-info .email-texto{
+  color: #2a2a2a;
+  text-decoration: none;
+  font-weight: 400;
+}
+
+.links-sociais{
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 24px 0;
+  flex-wrap: wrap;
+}
+
+.link-social{
+  padding: 10px 24px;
+  background: #ffffff;
+  color: var(--cinza-escuro);
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid #d0d6dd;
+  transition: all 0.2s;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+}
+
+.link-social:hover{
+  background: var(--azul);
+  color: #ffffff;
+  border-color: var(--azul);
+  transform: translateY(-2px);
+}
+
+/* Modal de Email */
+.modal-overlay{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay.ativo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-conteudo{
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+  animation: slideUp 0.3s ease;
+  position: relative;
+}
+
+.modal-fechar{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: #666;
+  line-height: 1;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.modal-fechar:hover{
+  background: #f0f0f0;
+  color: #000;
+}
+
+.modal-conteudo h3{
+  margin-top: 0;
+  color: #111;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-conteudo p{
+  color: #555;
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+
+.email-info{
+  background: #f5f5f5;
+  padding: 16px;
+  border-radius: 8px;
+  margin-bottom: 24px;
+  border-left: 4px solid var(--azul);
+}
+
+.email-info strong{
+  color: var(--azul);
+  font-size: 1.1rem;
+}
+
+.botoes-modal{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.botao-modal{
+  flex: 1;
+  min-width: 140px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.botao-copiar{
+  background: var(--azul);
+  color: white;
+}
+
+.botao-copiar:hover{
+  background: var(--azul-hover);
+  transform: translateY(-2px);
+}
+
+.botao-copiar.copiado{
+  background: #00c853;
+}
+
+.botao-abrir{
+  background: #f0f0f0;
+  color: #333;
+}
+
+.botao-abrir:hover{
+  background: #e0e0e0;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn{
+  from{ opacity: 0; }
+  to{ opacity: 1; }
+}
+
+@keyframes slideUp{
+  from{ 
+    opacity: 0;
+    transform: translateY(20px); 
+  }
+  to{ 
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+
+.copyright{
+  color: #666;
+  margin-top: 24px;
+  font-size: 0.9rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px){
+  .cabecalho-interno{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .navegacao{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .navegacao a{
+    margin-left: 0;
+    margin-right: 18px;
+  }
+
+  .sobre-grelha{
+    grid-template-columns: 1fr;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .foto-perfil{
+    max-width: 140px;
+    margin: 0 auto;
+  }
+
+  .projetos{
+    padding: 40px 24px;
+  }
+
+  .linha-projeto{
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+
+  .linha-projeto.invertido{
+    flex-direction: column;
+  }
+
+  .imagem-projeto,
+  .conteudo-projeto{
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+
+  .imagem-projeto{
+    padding: 0 16px;
+  }
+
+  .imagem-projeto img{
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .conteudo-projeto{
+    padding: 0 16px;
+  }
+
+  .conteudo-projeto h3{
+    font-size: 1.2rem;
+  }
+
+  .modal-conteudo{
+    padding: 30px 20px;
+  }
+
+  .botoes-modal{
+    flex-direction: column;
+  }
+
+  .botao-modal{
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px){
+  .container{
+    padding: 20px 0;
+  }
+
+  .lista-competencias{
+    gap: 8px;
+  }
+
+  .foto-perfil img{
+    width: 120px;
+    height: 120px;
+  }
+}
+  </style>
+  <meta name="description" content="Portfólio de Cristiano — Estudante de Desenvolvimento Web e Multimédia.">
+</head>
+<body>
+  <!-- Cabeçalho -->
+  <header class="cabecalho-site">
+    <div class="container cabecalho-interno">
+      <div class="marca">
+        <h1 class="nome">Cristiano Simões</h1>
+        <p class="descricao">Estudante de Desenvolvimento Web e Multimédia</p>
+      </div>
+      <nav class="navegacao">
+        <a href="#sobre">Sobre mim</a>
+        <a href="#competencias">Competências</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Sobre mim -->
+    <section id="sobre" class="secao sobre container">
+      <div class="sobre-grelha">
+        <div class="foto-perfil">
+          <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=600&auto=format&fit=crop" alt="Foto de perfil de Cristiano">
+        </div>
+        <div class="sobre-conteudo">
+          <h2>Sobre mim</h2>
+          <p>Sou estudante de Desenvolvimento Web e Multimédia em Vila Nova de 
+            Famalicão, com especial interesse em design gráfico e criação de 
+            interfaces para websites. Ao longo do meu percurso académico, 
+            desenvolvi projetos que vão desde manuais de normas gráficas 
+            até websites funcionais, sempre com foco no aspeto visual 
+            e na experiência do utilizador. Atualmente, procuro um 
+            estágio onde possa aplicar os conhecimentos adquiridos 
+            em projetos reais e continuar a evoluir nas áreas de front-end 
+            e branding. </p>
+          <a class="botao" href="cv.pdf" download>Descarregar CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divisor">
+
+    <!-- Competências -->
+    <section id="competencias" class="secao competencias container">
+      <h2>Competências</h2>
+      <ul class="lista-competencias">
+        <li class="competencia">
+          <span>Adobe Illustrator</span>
+        </li>
+        <li class="competencia">
+          <span>Figma</span>
+        </li>
+        <li class="competencia">
+          <span>HTML5</span>
+        </li>
+        <li class="competencia">
+          <span>CSS3</span>
+        </li>
+        <li class="competencia">
+          <span>Adobe Photoshop</span>
+        </li>
+        <li class="competencia">
+          <span>Adobe After Effects</span>
+        </li>
+      </ul>
+    </section>
+
+    <hr class="divisor">
+
+    <!-- Projetos -->
+    <section id="projetos" class="secao projetos container">
+      <h2>Projetos</h2>
+
+      <!-- Projeto 1 -->
+      <div class="linha-projeto invertido">
+        <div class="imagem-projeto">
+          <img src="./Imagens/Foto_Estágio_12ano.png" alt="Estágio 12.º ano">
+        </div>
+        <div class="conteudo-projeto">
+          <h3>Estágio 12.º ano</h3>
+          <p>No âmbito do estágio de 12.º ano, desenvolvi material 
+            gráfico para o Grupo Desportivo Natação Famalicão. 
+            Criei conteúdos visuais para as redes sociais do clube, 
+            tendo vários trabalhos sido publicados na conta oficial. 
+            Dois dos conteúdos apresentados foram publicados a 8 e 31 de julho de 2024. 
+            Este projeto permitiu-me aplicar conceitos de branding e 
+            design em contexto profissional.</p>
+        </div>
+      </div>
+
+      <!-- Projeto 2 -->
+      <div class="linha-projeto">
+        <div class="imagem-projeto">
+          <img src="./Imagens/PAP.png" alt="Projeto de Aptidão Profissional">
+        </div>
+        <div class="conteudo-projeto">
+          <h3>PAP</h3>
+          <p>O meu Projeto Final de Aptidão Profissional foi focado 
+            numa aplicação de resgate de animais abandonados. Criei 
+            toda a identidade visual do projeto, incluindo logótipo 
+            e manual de normas gráficas. Desenvolvi um protótipo 
+            funcional no Figma e um website explicativo para demonstrar 
+            o funcionamento da aplicação.</p>
+        </div>
+      </div>
+
+      <!-- Projeto 3 -->
+      <div class="linha-projeto invertido">
+        <div class="imagem-projeto">
+          <img src="./Imagens/COLDSHORE.png" alt="Cold Shore">
+        </div>
+        <div class="conteudo-projeto">
+          <h3>Cold Shore</h3>
+          <p>Trabalho académico em grupo dedicado ao desenvolvimento de um 
+            manual de normas gráficas completo. Participei na criação do 
+            logótipo em diferentes versões e no desenvolvimento do protótipo 
+            no Figma. O trabalho final incluiu especificações técnicas, 
+            versões do logótipo e aplicações práticas da marca.</p>
+        </div>
+      </div>
+
+      <!-- Projeto 4 -->
+      <div class="linha-projeto">
+        <div class="imagem-projeto">
+          <img src="./Imagens/O_Tigruta.png" alt="Logotipo — processo">
+        </div>
+        <div class="conteudo-projeto">
+          <h3>Emenda</h3>
+          <p>Emenda digital desenvolvida em HTML e CSS para um restaurante 
+            fictício. O projeto apresenta categorias de pratos, preços e um 
+            formulário de contacto. Trata-se de um projeto individual que 
+            demonstra a aplicação de conhecimentos de front-end e atenção à 
+            experiência do utilizador.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="rodape-site" id="contacto">
+    <div class="container">
+      <div class="contacto-info">
+        <h2>Contacto</h2>
+        <p>Email: <span class="email-texto">cris01092006@gmail.com</span></p>
+        <p>Vila Nova de Famalicão, Portugal</p>
+      </div>
+
+      <div class="links-sociais">
+        <button class="link-social" id="btnEmail">Email</button>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-social">GitHub</a>
+      </div>
+
+      <p class="copyright">
+         <span id="year"></span> Cristiano. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Modal de Email -->
+  <div class="modal-overlay" id="modalEmail">
+    <div class="modal-conteudo">
+      <button class="modal-fechar" id="btnFechar">&times;</button>
+      <h3>Entrar em Contacto</h3>      
+      <div class="email-info">
+        <strong>cris01092006@gmail.com</strong>
+      </div>
+
+      <div class="botoes-modal">
+        <button class="botao-modal botao-copiar" id="btnCopiar">📋 Copiar Email</button>
+        <a href="mailto:cris01092006@gmail.com" class="botao-modal botao-abrir">✉️ Abrir Email</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Ano automático
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Modal de Email
+    const modal = document.getElementById('modalEmail');
+    const btnEmail = document.getElementById('btnEmail');
+    const btnFechar = document.getElementById('btnFechar');
+    const btnCopiar = document.getElementById('btnCopiar');
+
+    // Abrir modal
+    btnEmail.addEventListener('click', () => {
+      modal.classList.add('ativo');
+    });
+
+    // Fechar modal
+    btnFechar.addEventListener('click', () => {
+      modal.classList.remove('ativo');
+    });
+
+    // Fechar ao clicar fora
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('ativo');
+      }
+    });
+
+    // Copiar email
+    btnCopiar.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText('cris01092006@gmail.com');
+        btnCopiar.textContent = '✓ Email Copiado!';
+        btnCopiar.classList.add('copiado');
+        
+        setTimeout(() => {
+          btnCopiar.textContent = '📋 Copiar Email';
+          btnCopiar.classList.remove('copiado');
+        }, 2000);
+      } catch (err) {
+        console.error('Erro ao copiar:', err);
+      }
+    });
+
+    // Fechar com tecla ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && modal.classList.contains('ativo')) {
+        modal.classList.remove('ativo');
+      }
+    });
+  </script>
+</body>
+</html>
